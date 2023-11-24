@@ -1,7 +1,10 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const Login = () => {
+  const navigate = useNavigate()
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -35,7 +38,11 @@ const Login = () => {
 
     if(response.ok) {
       localStorage.setItem('auth-data', JSON.stringify(data))
+
+      navigate('/')
     }
+
+
 
   }
 
